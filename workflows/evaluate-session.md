@@ -1,0 +1,12 @@
+# Evaluate a session — manual workflow v1
+
+Inspired by the video's repeatable screening workflow. This file is a procedure; it is not an installed slash command.
+
+1. Read profile, prompt, rubric, measurement definitions, this workflow and approved calibration. Confirm permissions and available media. Identify the target speaker, first take vs rehearsal, task conditions, complete duration and any missing input. Log the date, prompt version, rubric version and source.
+2. Before recording capture the user's private intended main point, pre-speech task-specific confidence, nervousness and familiarity in the session template. Do not ask an AI to guess them later. If not recorded, mark missing.
+3. Preserve the recording. Produce timestamped ASR only if a suitable tool is available and permitted. Label raw ASR; check passages used in findings against actual audio where possible. Mark uncertain words. If you cannot access the audio, state that and do not score audio-only criteria.
+4. Independently identify both effective moments and opportunities. Apply the rubric to eligible criteria. Attach at least one timestamped observation per score, modality, and audio-review state. Mark insufficient evidence `not assessed`; no filling gaps with guesses. Give no overall grade.
+5. Give a separate reviewer [evidence-reviewer.md](../verifiers/evidence-reviewer.md), the media and draft claims before finalizing. If no independently scoped reviewer or required media exists, report `not independently reviewed`; do not pretend verification happened. The reviewer can confirm, contradict or mark uncertain. Retain both draft and reviewer findings.
+6. Ask an optional human listener to complete the listener form without seeing intended-point answer or the evaluator's assessment. Afterwards, compare their answer against the pre-recorded intended main point, recording who judged the match. Do not make an AI listener appear human.
+7. Complete the report template: strengths, prioritized improvement, review status, self-report and an actionable drill. Keep first takes and rehearsals distinct. Save with source, version and date under private/sessions/; no fake scores.
+8. Append an entry to the local process log after actual completion, including source file hash if available and report path. If a prior successful run has the same hash and version, ask whether this is an intentional re-evaluation or skip duplicate; never overwrite history. Do not claim a hash or verification that was not done.
