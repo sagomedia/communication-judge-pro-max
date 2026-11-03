@@ -1,2 +1,6 @@
 # Personal recordings, transcripts, reports and subjective reflections stay local.
 /private/
+
+# Python bytecode
+__pycache__/
+*.py[cod]

@@ -8,4 +8,4 @@ Version 1.0 · current assumptions to review with the user
 - User owns the goals, chooses whether to share recordings, and can disagree with any feedback.
 - Separate **self-reported confidence**, **self-reported nervousness**, **listener understanding**, **observed task performance** and **language proficiency**. No overall single score.
 - Feedback: evidence-linked strengths, a prioritized opportunity, and a short drill. A solo monologue cannot assess interaction. Describe visible actions only when relevant; do not infer emotion or confidence from them.
-- No automatic external upload or destructive changes. The folders and documents are a manual starting kit; automation requires later implementation and testing.
+- No automatic external upload or destructive changes. Project skills guide the workflow and a local script summarizes saved scores; transcription, media access and independent review depend on available tools and authorization.
