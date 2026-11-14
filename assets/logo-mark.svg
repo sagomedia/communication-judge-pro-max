@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Communicator Judge Pro Max Clarity Prism mark">
+  <!-- Cobalt editorial tile -->
+  <rect x="0" y="0" width="128" height="128" rx="24" fill="#2a3dd8"/>
+
+  <!-- 1. Incoming raw speech beam (left) -->
+  <polygon points="14,72 34,64 36,70 14,78" fill="#ffffff" opacity="0.9"/>
+
+  <!-- 2. Faceted Clarity Prism (center, uniform optical wall) -->
+  <polygon points="54,27 29,97 79,97" fill="#ffffff"/>
+  <polygon points="54,43 38.5,89 69.5,89" fill="#2a3dd8"/>
+  <!-- Internal refraction dispersion fan strictly inside prism window -->
+  <polygon points="45.6,68 58.0,55 67.1,82" fill="#ffffff" opacity="0.34"/>
+
+  <!-- 3. Four ascending precision beams (4 pillars: Fluency, Communication, Body Language, Tonality) -->
+  <polygon points="65,43 114,32 114,38 67,48" fill="#ffffff"/>
+  <polygon points="70,56 114,50 114,56 72,61" fill="#ffffff"/>
+  <polygon points="74,69 114,68 114,74 76,74" fill="#ffffff"/>
+  <polygon points="79,82 114,86 114,92 81,87" fill="#ffffff" opacity="0.88"/>
+</svg>

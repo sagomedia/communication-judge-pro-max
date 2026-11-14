@@ -213,8 +213,9 @@
   .brand { display: flex; align-items: center; gap: 3.4mm; }
   .mark {
     width: 9.5mm; height: 9.5mm; border-radius: 1.8mm; background: var(--brand); color: #fff;
-    display: grid; place-items: center; font: 600 12pt/1 var(--sans);
+    display: grid; place-items: center; font: 600 12pt/1 var(--sans); overflow: hidden;
   }
+  .mark svg { width: 100%; height: 100%; display: block; }
   .brand .org { font-size: 10pt; font-weight: 600; line-height: 1.15; }
   .brand .tag { font-size: 7.6pt; color: var(--muted); margin-top: .8mm; }
   .meta { text-align: right; font-size: 7.8pt; line-height: 1.5; color: var(--muted); }
@@ -424,8 +425,23 @@
   document.documentElement.style.setProperty('--accent', oColor);
   document.documentElement.style.setProperty('--brand', D.org.color || '#2a3dd8');
 
+  const prismSVG =
+    '<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<polygon points="14,72 34,64 36,70 14,78" fill="#ffffff" opacity="0.9"/>' +
+    '<polygon points="54,27 29,97 79,97" fill="#ffffff"/>' +
+    '<polygon points="54,43 38.5,89 69.5,89" fill="var(--brand)"/>' +
+    '<polygon points="45.6,68 58.0,55 67.1,82" fill="#ffffff" opacity="0.34"/>' +
+    '<polygon points="65,43 114,32 114,38 67,48" fill="#ffffff"/>' +
+    '<polygon points="70,56 114,50 114,56 72,61" fill="#ffffff"/>' +
+    '<polygon points="74,69 114,68 114,74 76,74" fill="#ffffff"/>' +
+    '<polygon points="79,82 114,86 114,92 81,87" fill="#ffffff" opacity="0.88"/>' +
+    '</svg>';
+  const markHTML = (D.org && D.org.mark && D.org.mark !== 'C' && D.org.mark !== 'prism')
+    ? esc(D.org.mark)
+    : prismSVG;
+
   const headHTML =
-    '<div class="brand"><div class="mark">' + esc(D.org.mark) + '</div><div>' +
+    '<div class="brand"><div class="mark">' + markHTML + '</div><div>' +
     '<div class="org">' + esc(D.org.name) + '</div><div class="tag">' + esc(D.org.tagline) + '</div></div></div>' +
     '<div class="meta"><div class="ttl">' + esc(D.certificate.title) + '</div>' +
     '<div>' + esc(D.certificate.awardedLabel + ' ' + D.certificate.date) + '</div>' +

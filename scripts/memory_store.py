@@ -213,8 +213,8 @@ def build_brief(store: dict, video_hash: str | None = None) -> dict:
     }
 
 
-def validate_session_payload(payload: dict) -> None:
-    """Validate required fields before appending a session record."""
+def validate_session_payload(payload: dict, require_attestation: bool = True) -> None:
+    """Validate required fields and multimodal capability attestation before appending."""
     for field in ("session_id", "date", "video_file", "media_sha256", "take_status", "scores", "next_focus"):
         if field not in payload:
             raise ValueError(f"Missing required field: {field}")
@@ -223,6 +223,26 @@ def validate_session_payload(payload: dict) -> None:
         val = scores.get(pillar)
         if not isinstance(val, int) or not (0 <= val <= 100):
             raise ValueError(f"Invalid score for {pillar}: {val}")
+
+    if require_attestation:
+        att = payload.get("capability_attestation")
+        if not isinstance(att, dict):
+            raise ValueError(
+                "Fail-closed gate: missing 'capability_attestation'. Verify harness MP4 support + "
+                "native voice/audio + native video understanding in Step 0 before recording "
+                "(or pass --legacy only for pre-gate historical imports)."
+            )
+        for flag in ("harness_supports_video_audio", "native_audio_verified", "native_video_verified"):
+            if att.get(flag) is not True:
+                raise ValueError(
+                    f"Fail-closed gate: capability_attestation.{flag} must be true before recording."
+                )
+        for note_key in ("probe_quote", "probe_visual"):
+            val = att.get(note_key)
+            if not isinstance(val, str) or not val.strip():
+                raise ValueError(
+                    f"Fail-closed gate: capability_attestation.{note_key} must contain a real observed timestamped sample."
+                )
 
 
 def save_store(store: dict, json_path: Path, md_path: Path) -> None:
@@ -250,7 +270,7 @@ def cmd_brief(args: argparse.Namespace) -> int:
 def cmd_record(args: argparse.Namespace) -> int:
     with args.session_json.open(encoding="utf-8") as handle:
         payload = json.load(handle)
-    validate_session_payload(payload)
+    validate_session_payload(payload, require_attestation=not args.legacy)
     store = load_store(args.memory_json)
 
     if args.speaker:
@@ -290,6 +310,7 @@ def main() -> int:
     p_rec.add_argument("session_json", type=Path)
     p_rec.add_argument("--speaker", type=str, default=None)
     p_rec.add_argument("--allow-duplicate-hash", action="store_true")
+    p_rec.add_argument("--legacy", action="store_true", help="Allow pre-gate session payloads without capability_attestation.")
     p_rec.set_defaults(func=cmd_record)
 
     args = parser.parse_args()

@@ -2,8 +2,12 @@
 
 Every pillar verifier (`english-fluency.md`, `communication.md`, `body-language.md`, `tonality.md`) follows these rules when auditing a video:
 
-1. **Direct Media Grounding & Proxy Compression (`< 100 MB`):** Watch and listen to the actual video/audio. Cite exact `MM:SS–MM:SS` timestamps and concrete words/visuals/sounds for every Pro and Con. Never invent observations for frames, body parts, or words you cannot clearly see or hear.
-   - **Proxy rule:** If the original video exceeds `100 MB`, create a temporary compressed `720p` proxy under `100 MB` (preserving timestamps and audio) for full multimodal inspection, then delete the proxy afterward. Only split or reduce frame sampling if a very long video still cannot fit under `100 MB`.
+0. **Mandatory Native Multimodal Capability Gate (Fail-Closed):** All 4 verifiers require **simultaneous direct native audio (voice) AND native video (visual motion) perception** inside a harness that accepts `.mp4` video+audio.
+   - Before evaluating, pass `scripts/preflight_check.py` (Step 0) and directly verify spoken audio + moving video on the test clip.
+   - **Forbidden fallbacks:** Do NOT substitute external ASR/Whisper transcripts for voice listening, static extracted PNG frames without synchronized audio, or `ffprobe` loudness/bitrate heuristics.
+   - If the harness or model lacks native audio, native video, or `.mp4` reading support, **STOP BEFORE SCORING** and emit `UNSUPPORTED_ENVIRONMENT — CAPABILITY GATE BLOCKED`.
+1. **Direct Media Grounding & Safe Proxy Chunking (`<= 25 MB` / `<= 4 min` per segment):** Watch and listen to the actual video/audio. Cite exact `MM:SS–MM:SS` timestamps and concrete words/visuals/sounds for every Pro and Con. Never invent observations for frames, body parts, or words you cannot clearly see or hear.
+   - **Proxy / chunking rule:** Keep each inspected MP4 segment `<= 25 MB` and `<= 240s` (`4 min`). If the original video exceeds either limit, create temporary compressed `720p` (`~4 min`) proxy chunks in `/tmp` (preserving timestamps and audio), inspect every chunk in chronological order, and delete all temporary chunks immediately afterward.
    - **Observable-only guard (Tonality/Body):** Do not guess invisible body mechanics (e.g., hidden abdominal tension under clothing, `0.33 in` Adam's apple movement, tongue-tip position, or unmeasured Hz/dB figures); mark those `N/A — not observable on video` unless unmistakable in the audio or frame.
 2. **Minimum Completeness & Length Gate (`Incomplete Take`):**
    - A full benchmark evaluation requires a **complete speaking take of at least 2 minutes (`120s`)** without mid-take abandonment.

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 128" width="540" height="128" role="img" aria-label="Communicator Judge Pro Max logo lockup">
+  <!-- Cobalt Prism Mark -->
+  <g transform="translate(16, 16) scale(0.75)">
+    <rect x="0" y="0" width="128" height="128" rx="24" fill="#2a3dd8"/>
+    <polygon points="14,72 34,64 36,70 14,78" fill="#ffffff" opacity="0.9"/>
+    <polygon points="54,27 29,97 79,97" fill="#ffffff"/>
+    <polygon points="54,43 38.5,89 69.5,89" fill="#2a3dd8"/>
+    <polygon points="45.6,68 58.0,55 67.1,82" fill="#ffffff" opacity="0.34"/>
+    <polygon points="65,43 114,32 114,38 67,48" fill="#ffffff"/>
+    <polygon points="70,56 114,50 114,56 72,61" fill="#ffffff"/>
+    <polygon points="74,69 114,68 114,74 76,74" fill="#ffffff"/>
+    <polygon points="79,82 114,86 114,92 81,87" fill="#ffffff" opacity="0.88"/>
+  </g>
+
+  <!-- Swiss Editorial Wordmark -->
+  <text x="130" y="61"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="31" font-weight="600" letter-spacing="-0.6" fill="#15171c">Communicator Judge</text>
+  <text x="131" y="89"
+        font-family="Inter, 'Helvetica Neue', Arial, sans-serif"
+        font-size="14.5" font-weight="500" letter-spacing="0.9" fill="#6b707c">PRO MAX  ·  CLARITY &amp; PRESENCE</text>
+</svg>

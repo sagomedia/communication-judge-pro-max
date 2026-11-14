@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Communicator Judge Pro Max Clarity Prism icon">
+  <!-- 1. Incoming raw speech beam (left) -->
+  <polygon points="10,72 33,63 35,69 10,78" fill="#15171c"/>
+
+  <!-- 2. Faceted Clarity Prism (center) -->
+  <polygon points="54,23 27,100 81,100" fill="#2a3dd8"/>
+  <polygon points="54,41 37.5,91 70.5,91" fill="#ffffff"/>
+  <polygon points="45.1,68 58.6,55 67.5,82" fill="#2a3dd8" opacity="0.24"/>
+
+  <!-- 3. Four ascending precision beams (4 pillars) -->
+  <polygon points="66,41 118,29 118,36 68,47" fill="#2a3dd8"/>
+  <polygon points="71,55 118,48 118,55 73,61" fill="#2a3dd8" opacity="0.82"/>
+  <polygon points="76,69 118,68 118,75 78,75" fill="#12805c"/>
+  <polygon points="81,83 118,88 118,95 83,89" fill="#d4531f"/>
+</svg>

@@ -4,9 +4,11 @@
 
 ---
 
-## Part 1 — Verification Gate (Audit the 4 Pillar Outputs Before Finalizing)
+## Part 1 — Verification Gate (Audit Step 0 + the 4 Pillar Outputs Before Finalizing)
 
-Before writing the final coaching review, verify every pillar output against these 5 checks and correct any violation:
+Before writing the final coaching review, confirm **Check 0** passed and audit every pillar output against Checks 1–5:
+
+0. **Native Multimodal Attestation Check (Fail-Closed):** Confirm the run passed `scripts/preflight_check.py` (`environment_ok` and `media_ok`) AND the evaluator directly perceived both spoken voice/audio and moving video via `.mp4` (not Whisper/ASR-only text or static PNG thumbnails). If unverified, **abort immediately**—do not publish scores or update speaker memory.
 
 1. **Evidence & Timestamp Check:** Every Pro and Con must reference an exact `MM:SS–MM:SS` timestamp and an observed quote, sound, or visible action. Remove or mark uncertain anything not grounded in the clip.
 2. **Observable-Only Check:** Ensure no deduction relies on invisible mechanics (e.g., hidden abdominal Valsalva under a shirt, Adam's apple `0.33 in` height, tongue position, unmeasured Hz/dB). Reclassify any such item to `N/A`.
